@@ -18,11 +18,11 @@
         </header>
 
         <section class="input-area">
-            <div class="form-group">
-                <label for="birthdate">请输入您的阳历生日：</label>
+            <label for="birthdate">请输入您的阳历生日：</label>
+            <div class="input-group">
                 <input type="date" id="birthdate" min="1900-01-01" max="2026-12-31" required>
+                <button id="generateBtn" class="btn-primary">生成</button>
             </div>
-            <button id="generateBtn" class="btn-primary">生成运势K线</button>
         </section>
 
         <section id="chart-section" class="chart-section" style="display: none;">
@@ -37,12 +37,12 @@
                     <div class="fortune-details">
                         <div class="fortune-item">
                             <span class="icon">💰</span>
-                            <strong>财富状态：</strong>
+                            <strong class="vertical-label">财富<br>状态</strong>
                             <span id="wealth-fortune"></span>
                         </div>
                         <div class="fortune-item">
                             <span class="icon">❤️</span>
-                            <strong>婚恋状态：</strong>
+                            <strong class="vertical-label">婚恋<br>状态</strong>
                             <span id="love-fortune"></span>
                         </div>
                     </div>
