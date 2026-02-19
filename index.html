@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>人生K线图 (Life K-Line)</title>
+    <!-- ECharts CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <!-- Lunar JavaScript CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/lunar-javascript@1.6.12/lunar.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>人生K线图</h1>
+            <p class="subtitle">2026-2036 十年运势预测</p>
+        </header>
+
+        <section class="input-area">
+            <div class="form-group">
+                <label for="birthdate">请输入您的阳历生日：</label>
+                <input type="date" id="birthdate" min="1900-01-01" max="2026-12-31" required>
+            </div>
+            <button id="generateBtn" class="btn-primary">生成运势K线</button>
+        </section>
+
+        <section id="chart-section" class="chart-section" style="display: none;">
+            <div id="klineChart" class="chart-container"></div>
+        </section>
+
+        <section id="summary-section" class="summary-section" style="display: none;">
+            <div class="summary-card">
+                <h3>2026年运势总结</h3>
+                <div class="summary-content">
+                    <p id="lunar-info" class="highlight-text"></p>
+                    <div class="fortune-details">
+                        <div class="fortune-item">
+                            <span class="icon">💰</span>
+                            <strong>财富状态：</strong>
+                            <span id="wealth-fortune"></span>
+                        </div>
+                        <div class="fortune-item">
+                            <span class="icon">❤️</span>
+                            <strong>婚恋状态：</strong>
+                            <span id="love-fortune"></span>
+                        </div>
+                    </div>
+                    <p id="overall-comment" class="comment-text"></p>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

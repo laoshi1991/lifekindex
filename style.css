@@ -1,0 +1,335 @@
+:root {
+    /* Tech/Cyberpunk Palette */
+    --bg-color: #050505;
+    --card-bg: rgba(20, 20, 25, 0.9);
+    --primary-color: #00f3ff; /* Cyan Neon */
+    --secondary-color: #bc13fe; /* Purple Neon */
+    --text-color: #e0e0e0;
+    --accent-color: #2979ff;
+    
+    /* K-Line Colors (Neon) */
+    --rise-color: #ff2e63; /* Neon Red */
+    --fall-color: #00e676; /* Neon Green */
+    
+    --border-color: rgba(0, 243, 255, 0.2);
+    --shadow-glow: 0 0 10px rgba(0, 243, 255, 0.3);
+}
+
+body {
+    font-family: 'Rajdhani', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; /* Tech font if available */
+    background-color: var(--bg-color);
+    background-image: 
+        radial-gradient(circle at 10% 20%, rgba(41, 121, 255, 0.1) 0%, transparent 20%),
+        radial-gradient(circle at 90% 80%, rgba(188, 19, 254, 0.1) 0%, transparent 20%);
+    color: var(--text-color);
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.container {
+    width: 100%;
+    max-width: 900px;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 4px; /* Sharper corners for tech look */
+    box-shadow: var(--shadow-glow);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Decorative corner accents */
+.container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    border-top: 2px solid var(--primary-color);
+    border-left: 2px solid var(--primary-color);
+}
+.container::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 20px;
+    height: 20px;
+    border-bottom: 2px solid var(--primary-color);
+    border-right: 2px solid var(--primary-color);
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 20px;
+}
+
+h1 {
+    color: var(--primary-color);
+    margin: 0;
+    font-size: 28px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 0 5px var(--primary-color);
+}
+
+.subtitle {
+    color: var(--secondary-color);
+    margin: 10px 0 0;
+    font-size: 14px;
+    font-family: monospace;
+    letter-spacing: 1px;
+}
+
+.input-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 4px;
+    border: 1px dashed var(--border-color);
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 300px;
+}
+
+label {
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--primary-color);
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+input[type="date"] {
+    padding: 12px;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid var(--border-color);
+    color: var(--primary-color);
+    border-radius: 2px;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: monospace;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+input[type="date"]:focus {
+    box-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
+    border-color: var(--primary-color);
+}
+
+/* Custom calendar icon color fix usually requires webkit-calendar-picker-indicator filter */
+input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1) sepia(1) saturate(5) hue-rotate(175deg);
+    cursor: pointer;
+}
+
+.btn-primary {
+    background: transparent;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    padding: 12px 30px;
+    border-radius: 2px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    max-width: 300px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary:hover {
+    background: rgba(0, 243, 255, 0.1);
+    box-shadow: 0 0 15px rgba(0, 243, 255, 0.4);
+    text-shadow: 0 0 5px var(--primary-color);
+}
+
+.btn-primary:active {
+    transform: scale(0.98);
+}
+
+.chart-section {
+    width: 100%;
+    margin-top: 20px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 10px;
+    position: relative;
+}
+
+/* Grid overlay effect */
+.chart-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(rgba(0, 243, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 243, 255, 0.03) 1px, transparent 1px);
+    background-size: 20px 20px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.chart-container {
+    width: 100%;
+    height: 400px;
+    z-index: 1;
+    position: relative;
+}
+
+.summary-card {
+    background: rgba(20, 20, 30, 0.8);
+    border: 1px solid var(--border-color);
+    border-left: 4px solid var(--secondary-color); /* Purple accent */
+    border-radius: 4px;
+    padding: 24px;
+    position: relative;
+    overflow: hidden;
+}
+
+.summary-card::before {
+    content: 'DATA_ANALYSIS_2026';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 10px;
+    color: rgba(255, 255, 255, 0.1);
+    font-family: monospace;
+}
+
+.summary-card h3 {
+    margin-top: 0;
+    color: var(--secondary-color);
+    font-size: 18px;
+    border-bottom: 1px solid rgba(188, 19, 254, 0.3);
+    padding-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.highlight-text {
+    font-weight: bold;
+    color: var(--primary-color);
+    font-size: 1.1em;
+    margin-bottom: 20px;
+    font-family: monospace;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+    padding-bottom: 10px;
+}
+
+.fortune-details {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.fortune-item {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 15px;
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: border-color 0.3s;
+}
+
+.fortune-item:hover {
+    border-color: var(--primary-color);
+}
+
+.fortune-item .icon {
+    font-size: 1.2em;
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
+}
+
+.fortune-item strong {
+    color: var(--text-color);
+    min-width: 80px;
+}
+
+.fortune-item span:last-child {
+    color: var(--primary-color);
+    font-weight: 300;
+}
+
+.comment-text {
+    font-style: normal;
+    color: #a0a0a0;
+    line-height: 1.6;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 15px;
+    border-radius: 2px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    font-family: monospace;
+    position: relative;
+}
+
+.comment-text::before {
+    content: '> ';
+    color: var(--primary-color);
+}
+
+/* Responsive Styles */
+@media (min-width: 600px) {
+    .container {
+        padding: 40px;
+    }
+    
+    h1 {
+        font-size: 36px;
+    }
+
+    .fortune-details {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    
+    .fortune-item {
+        flex: 1;
+    }
+    
+    .chart-container {
+        height: 500px;
+    }
+}
+
+@media (max-width: 400px) {
+    .chart-container {
+        height: 350px;
+    }
+    
+    h1 {
+        font-size: 24px;
+    }
+    
+    .btn-primary {
+        width: 100%;
+    }
+}
